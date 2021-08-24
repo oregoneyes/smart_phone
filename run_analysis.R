@@ -94,12 +94,13 @@ means_df <- as_tibble(NULL)
 # loop to break out each subject's data for processing
 
 for(sub in df_by_subject) {
-    
+    act_means <- as_tibble(NULL)
     # separate all variables by activity into a list
     df_by_activity_list <- split(sub, sub$activity)
     
     # loop to analyze each activity and get the means for all variables. Store in act_mean
     for(act in df_by_activity_list) {
+        
         act_mean <- colMeans(act[3:88])
         
         # add back activity variable to act_mean
